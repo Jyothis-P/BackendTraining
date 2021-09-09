@@ -14,7 +14,23 @@ namespace ConsoleApp1
             demonstrateIfElse();
             demonstrateSwitchCase();
             printPattern(20);
+            workWithClass();
             Console.ReadKey();
+        }
+
+        private static void workWithClass()
+        {
+            Console.WriteLine("\n\nWorking with Classes.");
+
+            Car car = new Car();
+
+            car.name = "Duster";
+            car.mileage = 12.3m;
+            car.seats = 5;
+            car.used = false;
+            car.distance = 2342.2f;
+
+            car.print();
         }
 
         private static void demonstrateSwitchCase()
