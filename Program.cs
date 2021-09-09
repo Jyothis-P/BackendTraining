@@ -19,6 +19,7 @@ namespace ConsoleApp1
 
         private static void demonstrateSwitchCase()
         {
+            Console.WriteLine("\n\nSwitch Case.");
             int x = 5;
 
             switch (x)
@@ -41,6 +42,7 @@ namespace ConsoleApp1
 
         private static void demonstrateIfElse()
         {
+            Console.WriteLine("\n\nIf-Else.");
             int i = 20, j = 20;
 
             if (i > j)
@@ -59,6 +61,7 @@ namespace ConsoleApp1
 
         private static void printPattern(int v)
         {
+            Console.WriteLine("\n\nPattern Printing.");
             for (int i = v; i > 0; i--)
             {
                 for (int j = 0; j < i; j++)
