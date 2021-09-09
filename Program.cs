@@ -64,9 +64,7 @@ namespace ConsoleApp1
             Console.WriteLine("\n\nPattern Printing.");
             for (int i = v; i > 0; i--)
             {
-                for (int j = 0; j < i; j++)
-                    Console.Write("*");
-                Console.WriteLine();
+                Console.WriteLine(new string('*', i));
             }
         }
     }
