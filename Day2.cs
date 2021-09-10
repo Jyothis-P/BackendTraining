@@ -15,7 +15,74 @@ namespace ConsoleApp1
             Console.WriteLine("=============================");
             demonstrateTypes();
             arrayHandling();
-            inputHandling();
+            //inputHandling();
+            parseToInt();
+            unboxing();
+            persistentAssignment();
+        }
+
+        private void persistentAssignment()
+        {
+            Console.WriteLine("\n\nCatching errors in type casting.");
+            while (true)
+            {
+                Console.Write("Enter 'y': ");
+                string input = Console.ReadLine();
+                try
+                {
+                    if (input == "q")
+                    {
+                        break;
+                    }
+                    Console.WriteLine(assign(Convert.ToInt32(input)));
+                    break;
+                }
+                catch
+                {
+                    Console.WriteLine("Give a integer");
+                }
+
+            }
+        }
+
+        private int assign(int x)
+        {
+            return (int)((x * x) + (2 * x) + 1);
+        }
+
+        private void unboxing()
+        {
+            Console.WriteLine("\n\nUnboxing an Object.");
+
+            Object obj = 30;
+            int i = (int)obj;
+            Console.WriteLine(i);
+        }
+
+        private void parseToInt()
+        {
+            Console.WriteLine("\n\nParsing to int.");
+            string val = null;
+            int result;
+            bool ifSuccess = int.TryParse(val, out result);
+            Console.WriteLine(ifSuccess);
+            Console.WriteLine(result);
+
+            val = "100.11";
+            ifSuccess = int.TryParse(val, out result);
+            Console.WriteLine(ifSuccess);
+            Console.WriteLine(result);
+
+            val = "999999999999999999999";
+            ifSuccess = int.TryParse(val, out result);
+            Console.WriteLine(ifSuccess);
+            Console.WriteLine(result);
+
+            val = "231";
+            ifSuccess = int.TryParse(val, out result);
+            Console.WriteLine(ifSuccess);
+            Console.WriteLine(result);
+
         }
 
         private void inputHandling()
