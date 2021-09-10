@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,64 @@ namespace ConsoleApp1
             multiDimensionalArrays();
             searchInArray();
             distinctArray();
+            sortArray();
+            sortArrayOfObject();
+        }
+        class Person
+        {
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+
+            public string toString()
+            {
+                return $"{FirstName} {LastName}";
+            }
+        }
+
+        class PersonComparer : IComparer
+        {
+            public int Compare(object x, object y)
+            {
+                return (new CaseInsensitiveComparer()).Compare(((Person)x).LastName, ((Person)y).LastName);
+            }
+        }
+        private void sortArrayOfObject()
+        {
+            Console.WriteLine("\n\nSorting an Array of Objects.");
+ 
+            Person[] people = {
+                    new Person(){ FirstName="Steve", LastName="Jobs"},
+                    new Person(){ FirstName="Bill", LastName="Gates"},
+                    new Person(){ FirstName="Lary", LastName="Page"}
+                };
+
+            Console.WriteLine("Before.");
+            Array.ForEach<Person>(people, person => Console.Write(person.toString() + ", "));
+            Console.WriteLine();
+
+            Array.Sort(people, new PersonComparer());
+            Console.WriteLine("After.");
+            Array.ForEach<Person>(people, person => Console.Write(person.toString() + ", "));
+            Console.WriteLine();
+
+        }
+
+        private void sortArray()
+        {
+            Console.WriteLine("\n\nSorting array.");
+            string[] animals = { "Cat", "Alligator", "Fox", "Donkey", "Bear", "Elephant", "Goat" };
+
+            Array.Sort(animals); // Result: ["Alligator", "Bear", "Cat","Donkey","Elephant","Fox","Goat"]
+            Array.ForEach<string>(animals, s => Console.Write(s + ", "));
+            Console.WriteLine();
+
+            Console.WriteLine("\nWith LINQ");
+            var sortedStr = from name in animals
+                            orderby name descending
+                            select name;
+
+            Array.ForEach<string>(sortedStr.ToArray<string>(), s => Console.Write(s + ", "));
+            Console.WriteLine();
         }
 
         private void distinctArray()
