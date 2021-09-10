@@ -11,10 +11,15 @@ namespace ConsoleApp1
         
         static void Main(string[] args)
         {
+            // Day 1.
             demonstrateIfElse();
             demonstrateSwitchCase();
             printPattern(20);
             workWithClass();
+
+            // Day 2.
+            Day2 day2 = new Day2();
+
             Console.ReadKey();
         }
 
