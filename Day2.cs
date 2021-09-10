@@ -11,6 +11,8 @@ namespace ConsoleApp1
 
         public Day2()
         {
+            Console.WriteLine("\n\n\nDay2");
+            Console.WriteLine("=============================");
             demonstrateTypes();
             arrayHandling();
             inputHandling();
